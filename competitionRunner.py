@@ -1,0 +1,5 @@
+
+competitionStart = time.time()
+
+
+
