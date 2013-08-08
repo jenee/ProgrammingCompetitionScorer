@@ -1,34 +1,37 @@
 This project will let you run your own little personal programming competition,
-   scored using ACM ICPC style.
+scored using ACM ICPC style.
 
-   It will not, at least for now, support all of ACM ICPC features, including:
+It will not, at least for now, support all of ACM ICPC features, including:
+
    * a central server
    * multiple people
    * submitting problems for testing
-    + and subsequently, penalties for incorrect submissions 
-   * 
-Syntax: 
+    + and subsequently, penalties for incorrect submissions
 
-SETUP 
+# Syntax
 
-   To start a competition (which will be named by the time it was started)
-   python competitionRunner.py start 
+## Setup
 
-   To start a *named* competition:
-   python competitionRunner.py start <compName>
+To start a competition (which will be named by the time it was started):
 
+    python competitionRunner.py start 
 
-MARK A PROBLEM SOLVED
-   python competitionRunner.py <problemNum> <compName>  
+To start a *named* competition:
+
+    python competitionRunner.py start <compName>
 
 
-SEE SCORE
-   python competitionRunner.py score <compName>
+## Mark a Problem Solved
+
+    python competitionRunner.py <problemNum> <compName>  
 
 
+## See Score
 
-FUTURE:
-   To start a competition with a time limit
-   python competitionRunner.py -t <lengthInHours>
-   
+    python competitionRunner.py score <compName>
 
+# Future
+
+To start a competition with a time limit:
+
+    python competitionRunner.py -t <lengthInHours>
