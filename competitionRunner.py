@@ -10,14 +10,14 @@ def printUsage():
    print "USAGE: python competitionRunner.py score <competitionName>"
 
 
-for arg in sys.argv: 
-   print arg
+#for arg in sys.argv: 
+#   print arg
 
 taskArg =""
 if len(sys.argv) > 1:
    taskArg = sys.argv[1]
 
-print taskArg
+#print taskArg
 
 competitionStart = 0;
 competitionName = "";
@@ -35,16 +35,12 @@ if taskArg == "start":
    compRecordFile.write( str(competitionStart) +"\n" );
 
    compRecordFile.close();
-elif taskArg == "score":
-   print "This will someday compute the score"
 elif taskArg.isdigit():
-   #print "This will say that you've solved a problem!"
    if len(sys.argv) > 2:
       competitionName = sys.argv[2]  + ".rec"
    else:
       printUsage()
       sys.exit()
-   #print "in problem "+taskArg
    try:
       if os.path.exists(competitionName):
          compRecordFile = open(competitionName, "a")
@@ -52,6 +48,36 @@ elif taskArg.isdigit():
          compRecordFile.close();
       else:
          print "Competition file does not exist for \'"+competitionName+"\'!"
+   except IOError:
+      print "IO error when trying to access file "+ filename
+elif taskArg == "score":
+   if len(sys.argv) > 2:
+      competitionName = sys.argv[2]  + ".rec"
+   else:
+      printUsage()
+      sys.exit()
+   totalScore = 0;
+   try:
+      if not os.path.exists(competitionName):
+         print "Competition file does not exist for \'"+competitionName+"\'!"
+      else:
+         compRecordFile = open(competitionName)
+         
+         startTime = 0;
+
+         firstLine = True
+         for line in compRecordFile:
+            if firstLine:
+               startTime = float(line)
+               firstLine = False
+            else:
+               solveTime = float(line);
+               diff = solveTime - startTime;
+               print "Solve Diff: "+str(diff)
+               totalScore += diff
+
+         print "Score: "+str(totalScore)      
+         compRecordFile.close();
    except IOError:
       print "IO error when trying to access file "+ filename
    
