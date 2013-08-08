@@ -19,11 +19,11 @@ SETUP
 
 
 MARK A PROBLEM SOLVED
-   python competitionRunner.py <problemNum>
+   python competitionRunner.py <problemNum> <compName>  
 
 
 SEE SCORE
-   python competitionRunner.py score
+   python competitionRunner.py score <compName>
 
 
 

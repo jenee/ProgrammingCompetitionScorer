@@ -1,6 +1,16 @@
 import sys
 import time
 
+
+def printUsage:
+   print "USAGE: python competitionRunner.py start <competitionName>"
+   print "  or: " 
+   print "USAGE: python competitionRunner.py <problemNum> <competitionName>"
+   print "  or: " 
+   print "USAGE: python competitionRunner.py score <competitionName>"
+
+
+
 for arg in sys.argv: 
    print arg
 
@@ -27,8 +37,11 @@ if taskArg == "start":
 
    compRecordFile.close();
 elif taskArg == "score":
-   print "This will someday compute the score"
+   #print "This will someday compute the score"
+   
+
 elif taskArg.isnumeric():
    print "This will say that you've solved a problem!"
-
+else:
+   print "NOT VALID."
 
