@@ -2,13 +2,12 @@ import sys
 import time
 
 
-def printUsage:
+def printUsage():
    print "USAGE: python competitionRunner.py start <competitionName>"
    print "  or: " 
    print "USAGE: python competitionRunner.py <problemNum> <competitionName>"
    print "  or: " 
    print "USAGE: python competitionRunner.py score <competitionName>"
-
 
 
 for arg in sys.argv: 
@@ -37,11 +36,23 @@ if taskArg == "start":
 
    compRecordFile.close();
 elif taskArg == "score":
-   #print "This will someday compute the score"
-   
-
-elif taskArg.isnumeric():
-   print "This will say that you've solved a problem!"
+   print "This will someday compute the score"
+elif taskArg.isdigit():
+   #print "This will say that you've solved a problem!"
+   if len(sys.argv) > 2:
+      competitionName = sys.argv[2]
+   else:
+      printUsage()
+      sys.exit()
+   #print "in problem "+taskArg
+   try:
+      if (os.path.exists(competitionName):
+         compRecordFile = open(competitionName, "a")
+   except IOError:
+      print "IO error when trying to access file "+ filename
+   finally:
+      compRecordFile.write( str(time.time()) );
+      compRecordFile.close();
 else:
-   print "NOT VALID."
+   printUsage()
 
