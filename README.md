@@ -12,10 +12,10 @@ Syntax:
 SETUP 
 
    To start a competition (which will be named by the time it was started)
-   python competitionRunner.py 
+   python competitionRunner.py start 
 
    To start a *named* competition:
-   python competitionRunner.py <compName>
+   python competitionRunner.py start <compName>
 
 
 MARK A PROBLEM SOLVED
@@ -30,4 +30,5 @@ SEE SCORE
 FUTURE:
    To start a competition with a time limit
    python competitionRunner.py -t <lengthInHours>
+   
 
